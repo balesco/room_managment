@@ -61,7 +61,7 @@ class RoomController extends Controller
      */
     public function show(Request $request, Room $room)
     {
-        $this->authorize('view', $room);
+        /* $this->authorize('view', $room); */
 
         return view('app.rooms.show', compact('room'));
     }
