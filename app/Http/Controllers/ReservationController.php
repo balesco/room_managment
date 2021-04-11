@@ -8,6 +8,7 @@ use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Http\Requests\ReservationStoreRequest;
 use App\Http\Requests\ReservationUpdateRequest;
+use DateTime;
 
 class ReservationController extends Controller
 {
@@ -126,5 +127,24 @@ class ReservationController extends Controller
         return redirect()
             ->route('reservations.index')
             ->withSuccess(__('crud.common.removed'));
+    }
+
+    public function getJSONReservations($id)
+    {
+        $room = Room::find($id);
+        $reservations = $room->reservations;
+        $data = [];
+        foreach ($reservations as $key => $reservation) {
+            $today = date("Y-m-d H:i:s");
+            $start = $reservation->date->format('Y-m-d') . ' ' . $reservation->begin_at;
+            $d = [
+                'title' => $reservation->description,
+                'start' => $start,
+                'end' => $reservation->date->format('Y-m-d') . ' ' . $reservation->end_at,
+                'className' => $today === $start ? 'bg-danger' : ($today < $start ? 'bg-warning' : "bg-success"),
+            ];
+            array_push($data, $d);
+        }
+        return response()->json($data, 200);
     }
 }

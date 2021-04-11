@@ -55,6 +55,8 @@
     <!-- demo app -->
     <script src="{{ asset('assets/js/pages/demo.calendar.js') }}"></script>
     <!-- end demo js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     @stack('script')
     @livewireScripts
 </body>

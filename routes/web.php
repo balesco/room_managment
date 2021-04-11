@@ -26,7 +26,9 @@ Route::middleware(['auth:sanctum', 'verified'])
         return view('dashboard', compact('rooms'));
     })
     ->name('dashboard');
-
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
+    Route::get('/all/room/{id}/reservations', 'ReservationController@getJSONReservations');
+});
 Route::prefix('/')
     ->middleware(['auth:sanctum', 'verified'])
     ->group(function () {
