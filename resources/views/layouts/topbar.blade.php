@@ -170,27 +170,9 @@
                         </div>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <a href="{{ route('profile.show') }}" class="dropdown-item notify-item">
                             <i class="mdi mdi-account-circle mr-1"></i>
                             <span>My Account</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="mdi mdi-account-edit mr-1"></i>
-                            <span>Settings</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="mdi mdi-lifebuoy mr-1"></i>
-                            <span>Support</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="mdi mdi-lock-outline mr-1"></i>
-                            <span>Lock Screen</span>
                         </a>
 
                         <!-- item-->

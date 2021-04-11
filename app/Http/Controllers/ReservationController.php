@@ -52,12 +52,13 @@ class ReservationController extends Controller
      */
     public function store(ReservationStoreRequest $request)
     {
-        $this->authorize('create', Reservation::class);
+        /* $this->authorize('create', Reservation::class); */
 
         $validated = $request->validated();
 
         $reservation = Reservation::create($validated);
-
+        if (isset($request->api))
+            return response()->json($reservation, 200);
         return redirect()
             ->route('reservations.edit', $reservation)
             ->withSuccess(__('crud.common.created'));

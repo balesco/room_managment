@@ -67,7 +67,7 @@
                                 token = $("input[name='_token']").val();
                             axios.defaults.headers['x-csrf-token'] = token;
                             axios.post(`/reservations`,
-                                { date: n.format('YYYY-MM-DD').toString(), begin_at: b + ':00', end_at: f + ':00', description: e, user_id: user_id, room_id: room_id },
+                                { date: n.format('YYYY-MM-DD').toString(), begin_at: b + ':00', end_at: f + ':00', description: e, user_id: user_id, room_id: room_id, api: 'api' },
                                 { withCredentials: true, xsrfCookieName: "XSRF-TOKEN", xsrfHeaderName: "X-XSRF-TOKEN" })
                                 .then(res => {
                                     console.log(res.data);
